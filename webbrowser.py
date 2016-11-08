@@ -1,16 +1,11 @@
-import socket
-
-import psutil
+import psutil,socket
 from browsermobproxy import Server
 from selenium import webdriver
-
-
 class webbrowser:
-    def __init__(self, path, url, cookie):
+    def __init__(self, url, cookie):
         socket.setdefaulttimeout(10)
         self.url = url
         self.cookie = cookie
-        self.path = path
         self.server = Server('browsermob-proxy-2.1.2\\bin\\browsermob-proxy')
         self.server.start()
         self.proxy = self.server.create_proxy()
@@ -23,7 +18,7 @@ class webbrowser:
         service_args = ["--proxy=%s" % self.proxy.proxy, '--ignore-ssl-errors=yes']
         self.driver = webdriver.PhantomJS(service_args=service_args, desired_capabilities=cap)
         self.proxy.new_har(options={'captureContent': True})
-        self.driver.get('http://192.168.0.107/xssting/get.html')
+        self.driver.get(url)
         if self.cookie != None:
             for i in self.cookie.split(';'):
                 self.driver.execute_script("document.cookie = \"%s\"" % i)
@@ -42,19 +37,11 @@ class webbrowser:
                     postdata.append(j['name'] + '=' + j['value'])
                 data = "&".join(postdata)
                 all_requests.append(i['request']['url'] + '||post||' + data)
-        print list(set(all_requests))
+        return list(set(all_requests))
 
     def close(self):
         self.driver.quit()
-        for process in psutil.process_iter():
-            try:
-                process_info = process.as_dict(attrs=['name', 'cmdline'])
-                if process_info.get('name') in ('java', 'java.exe'):
-                    for cmd_info in process_info.get('cmdline'):
-                        if cmd_info == '-Dapp.name=browsermob-proxy':
-                            process.kill()
-            except psutil.NoSuchProcess:
-                pass
+        self.server.stop()
 
 
 if __name__ == '__main__':
