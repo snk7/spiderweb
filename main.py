@@ -51,9 +51,10 @@ class main:
                 j=self.find_url(p.gethtml(i))
                 print j
             #print list(set(list_url_a))
-            print list(set(p.get_network())),11111111111111
+            for l in list(set(p.get_network())):    print l
         finally:
-            p.close()
+            if p:
+                p.close()
     def start(self):
         try:
             self.Dispatch('A')
