@@ -1,12 +1,10 @@
-# spiderweb
-
-#Web2.0爬虫说明:
+# Web2.0爬虫说明:
 	高效多线程基于web2.0标准url爬取,基于webkit,并且抓取post请求包。
 	功能:
 		爬取方式:
 			带referer、cookie Html A标签多线程抽取
 		三种模式:
-深度爬取
+                        深度爬取
 			Json/cgi类站点爬取
 			伪静态站点爬取
 		Domian url去重保存
@@ -14,13 +12,13 @@
 		不抓取url黑名单
 	需要环境:
 		Python2.7 java mysql browsermobproxy PhantomJS
-用到技术：
+        用到技术：
 		Python mysql
 	数据库建表:
 		*_List_url:
 		id url url_re state
 CREATE TABLE data_url
-       (id  integer primary key autoincrement ,
+       (id  integer primary key auto_increment ,
        url TEXT NOT NULL,
 	url_re TEXT NOT NULL,
        state INT NOT NULL)
@@ -50,7 +48,7 @@ CREATE TABLE net_url
 	Webkit network
 
 
-#[依赖安装]
+# 依赖安装
 sudo apt-get install python-dev
 sudo pip install psutil
 sudo pip install publicsuffix
