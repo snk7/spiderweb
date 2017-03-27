@@ -1,5 +1,7 @@
 # forked from https://github.com/rasca11/spiderweb
 
+# r屌大好人，我也要开上挖掘机，挖洞赚钱，迎娶白富美！！！
+
 # Web2.0爬虫说明:
 	高效多线程基于web2.0标准url爬取,基于webkit,并且抓取post请求包。
 	功能:
