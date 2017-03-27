@@ -17,27 +17,30 @@
 	数据库建表:
 		*_List_url:
 		id url url_re state
-CREATE TABLE data_url
-       (id  integer primary key auto_increment ,
-       url TEXT NOT NULL,
-	url_re TEXT NOT NULL,
-       state INT NOT NULL)
+
+        CREATE TABLE data_url
+                (id  integer primary key auto_increment ,
+                 url TEXT NOT NULL,
+	         url_re TEXT NOT NULL,
+                 state INT NOT NULL)
 
 
 		*_net_url
 		id url url_re state method.
-CREATE TABLE net_url
-       (id  integer primary key autoincrement ,
-       url TEXT NOT NULL,
-	url_re TEXT NOT NULL,
-	method TEXT NOT NULL,
-       state INT NOT NULL)
+		
+        CREATE TABLE net_url
+              (id  integer primary key auto_increment ,
+               url TEXT NOT NULL,
+	       url_re TEXT NOT NULL,
+	       method TEXT NOT NULL,
+               state INT NOT NULL)
 
 
+高效多线程基于web2.0标准url爬取,基于webkit,并且抓取network请求包。
 
-	高效多线程基于web2.0标准url爬取,基于webkit,并且抓取network请求包。
 爬取方式
 	带referer、cookie Html A标签多线程抽取
+
 三种爬取方式:
 		深度爬取(while)
 		伪静态取重爬取(re_while)
