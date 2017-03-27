@@ -7,6 +7,8 @@ class webbrowser:
         self.url = url
         self.cookie = cookie
         self.server = Server('browsermob-proxy-2.1.2\\bin\\browsermob-proxy')
+        #for linux use:
+        #self.server = Server('browsermob-proxy-2.1.2/bin/browsermob-proxy')
         self.server.start()
         self.proxy = self.server.create_proxy()
         cap = webdriver.DesiredCapabilities.PHANTOMJS
