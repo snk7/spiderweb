@@ -52,9 +52,10 @@ class main:
                 print j
             #print list(set(list_url_a))
             for l in list(set(p.get_network())):    print l
+            p.close()
         finally:
-            if p:
-                p.close()
+            pass
+                
     def start(self):
         try:
             self.Dispatch('A')
