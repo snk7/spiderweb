@@ -1,6 +1,9 @@
 # forked from https://github.com/rasca11/spiderweb
 
 # r屌大好人，我也要开上挖掘机，挖洞赚钱，迎娶白富美！！！
+# 2017-04-05
+# 在源代码基础上修改了一些小问题，还在学习中。
+# 重新搭建了一次环境，发现ReadMe部分错误和遗漏，已修正。
 
 # Web2.0爬虫说明:
 	高效多线程基于web2.0标准url爬取,基于webkit,并且抓取post请求包。
@@ -55,7 +58,9 @@
 	Webkit network
 
 
-# 依赖安装
+# 环境准备、依赖安装
+sudo apt-get install git
+sudo apt-get install default-jdk
 sudo apt-get install python-dev
 sudo pip install psutil
 sudo pip install publicsuffix
@@ -69,3 +74,9 @@ wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_6
 tar xf  phantomjs-2.1.1-linux-x86_64.tar.bz2
 sudo mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
 sudo ln -s /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+
+# 代码运行测试
+git clone https://github.com/snk7/spiderweb.git
+cd spiderweb
+chmod +x browsermob-proxy-2.1.2/bin/browsermob-proxy
+python main.py
